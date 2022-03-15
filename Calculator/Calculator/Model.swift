@@ -31,7 +31,7 @@ struct LinkedList {
     var head: Node?
     var tail: Node?
     
-    mutating func pushNode(_ data: CalculateItem) {
+    mutating func push(with data: CalculateItem) {
         let newNode = Node(data: data)
         if head == nil {
             head = newNode
@@ -43,17 +43,21 @@ struct LinkedList {
     }
     
     mutating func popNode() -> Node? {
-        let removalNode = head
-        head = removalNode?.next
-        return removalNode
+        if head == nil {
+            return nil
+        } else {
+            let firstNode = head
+            head = firstNode?.next
+            return firstNode
+        }
     }
 }
 
-struct Queue {
+struct CalculatorItemQueue {
     var queue = LinkedList()
     
-    mutating func enqueue(data: CalculateItem) {
-        queue.pushNode(data)
+    mutating func enqueue(with data: CalculateItem) {
+        queue.push(with: data)
     }
     
     mutating func dequeue() -> Node? {

@@ -9,10 +9,10 @@ import XCTest
 @testable import Calculator
 
 class ModelTests: XCTestCase {
-    var sut: Queue!
+    var sut: CalculatorItemQueue!
 
     override func setUpWithError() throws {
-        sut = Queue()
+        sut = CalculatorItemQueue()
     }
 
     override func tearDownWithError() throws {
@@ -20,9 +20,9 @@ class ModelTests: XCTestCase {
     }
     
     func test_enqueue_and_dequeue() {
-        sut.enqueue(data: 10)
-        sut.enqueue(data: 100)
-        sut.enqueue(data: 77)
+        sut.enqueue(with: 10)
+        sut.enqueue(with: 100)
+        sut.enqueue(with: 77)
         
         guard let result1 = sut.dequeue() else { return }
         guard let resultData1 = result1.data as? Double else { return }
