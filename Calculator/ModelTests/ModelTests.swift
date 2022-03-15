@@ -24,14 +24,18 @@ class ModelTests: XCTestCase {
         sut.enqueue(data: 100)
         sut.enqueue(data: 77)
         
-        let result1 = sut.dequeue()
-        let result2 = sut.dequeue()
-        let result3 = sut.dequeue()
-        let result4 = sut.dequeue()
-        XCTAssertEqual(result1?.data, 10)
-        XCTAssertEqual(result2?.data, 100)
-        XCTAssertEqual(result3?.data, 77)
+        guard let result1 = sut.dequeue() else { return }
+        guard let resultData1 = result1.data as? Double else { return }
+        guard let result2 = sut.dequeue() else { return }
+        guard let resultData2 = result2.data as? Double else { return }
+        guard let result3 = sut.dequeue() else { return }
+        guard let resultData3 = result3.data as? Double else { return }
+        guard let result4 = sut.dequeue() else { return }
+        guard let resultData4 = result4.data as? Double else { return }
+        XCTAssertEqual(resultData1, 10)
+        XCTAssertEqual(resultData2, 100)
+        XCTAssertEqual(resultData3, 77)
         
-        XCTAssertEqual(result4?.data, nil)
+        XCTAssertEqual(resultData4, nil)
     }
 }

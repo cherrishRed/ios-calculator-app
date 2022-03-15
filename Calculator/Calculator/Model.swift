@@ -7,11 +7,21 @@
 
 import Foundation
 
+protocol CalculateItem {
+}
+
+enum Operator: CalculateItem {
+    case add, subtract, multiply, division
+}
+
+extension Double: CalculateItem {
+}
+
 final class Node {
-    var data: Int?
+    var data: CalculateItem?
     var next: Node?
     
-    init(data: Int, next: Node? = nil) {
+    init(data: CalculateItem, next: Node? = nil) {
         self.data = data
         self.next = next
     }
@@ -21,7 +31,7 @@ struct LinkedList {
     var head: Node?
     var tail: Node?
     
-    mutating func pushNode(_ data: Int) {
+    mutating func pushNode(_ data: CalculateItem) {
         let newNode = Node(data: data)
         if head == nil {
             head = newNode
@@ -42,7 +52,7 @@ struct LinkedList {
 struct Queue {
     var queue = LinkedList()
     
-    mutating func enqueue(data: Int) {
+    mutating func enqueue(data: CalculateItem) {
         queue.pushNode(data)
     }
     
