@@ -13,8 +13,8 @@
 
 ## 프로젝트 소개
 
-🧮 내가 구현한 계산기!
-
+ <img src = "https://user-images.githubusercontent.com/63499481/162123412-575fa7ac-07ec-42b5-9f76-512b17072f39.png" width="100px">
+기본앱 계산기를 만들어 보자!
 
 ## 프로젝트 구조 
 
