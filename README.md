@@ -16,12 +16,14 @@
  <img src = "https://user-images.githubusercontent.com/63499481/162123412-575fa7ac-07ec-42b5-9f76-512b17072f39.png" width="100px">
 기본앱 계산기를 만들어 보자!
 
-## 프로젝트 구조 
+## 프로젝트 구조
+![calculateUML](https://user-images.githubusercontent.com/63499481/162133580-520a14d7-f7a0-40c7-b49c-4d86241bb099.png)
+
 
 ## 개발환경 및 라이브러리
 
-[![swift](https://img.shields.io/badge/swift-5.0-orange)]()
-[![xcode](https://img.shields.io/badge/Xcode-13.0-blue)]()
+[![swift](https://img.shields.io/badge/swift-5.6-orange)]()
+[![xcode](https://img.shields.io/badge/Xcode-13.3-blue)]()
 
 ## 키워드
 `Unit Test` `자료구조` `Queue` `Stack` `Equtable`
