@@ -1,7 +1,7 @@
 # 🧮 계산기 I 프로젝트
 >프로젝트 기간 2022.03.14 ~ 2022.03.25
 >
->팀원 : 🔴 [Red](https://github.com/cherrishRed) / 리뷰어 : 🐸 [개굴](https://github.com/yoo-kie)
+> 🔴 [Red](https://github.com/cherrishRed) / 리뷰어 : 🐸 [개굴](https://github.com/yoo-kie)
 
 ## 목차
 
@@ -17,6 +17,8 @@
  <img src = "https://user-images.githubusercontent.com/63499481/162123412-575fa7ac-07ec-42b5-9f76-512b17072f39.png" width="100px">
 기본앱 계산기를 만들어 보자!
 
+[팀원과 합친 계산기 프로젝트 보러가기](https://github.com/cherrishRed/ios-calculator-app-team)
+
 ## 프로젝트 구조
 ![calculateUML](https://user-images.githubusercontent.com/63499481/162133580-520a14d7-f7a0-40c7-b49c-4d86241bb099.png)
 
@@ -27,7 +29,7 @@
 [![xcode](https://img.shields.io/badge/Xcode-13.3-blue)]()
 
 ## 키워드
-`Unit Test` `자료구조` `Queue` `Stack` `Equtable`
+`Unit Test` `자료구조` `Queue` `Stack` `Equtable` `고차함수` `파일분리` `nan` `부동소수점` `Auto layout` `scroll view` `Fomatter` `side effect`
 
 ## [STEP 1]
 [STEP 1 PR](https://github.com/yagom-academy/ios-calculator-app/pull/164)
@@ -113,5 +115,28 @@ nan 을 비교할려면 그냥 비교하면 안되고 isNaN 메서드를 사용�
 - layoutIfNeeded()
 - NumberFomatter
 - 부동 소수점 연산 오류
+
+#### ✏️ layoutIfNeeded()
+레이아웃 갱신이 즉각 반영되도록 하는 메서드이다.
+
+AutoLayout 사용하면, layout engine이 뷰 위치 변경을 위해 제약 조건 확인 필요하다.
+우리가 코드로 제약 조건을 추가하는 즉시 업데이트 되는 것이 아니라는 것이다.
+layoutIfNeeded 를 사용하면 즉시 업데이트를 시킬 수 있다.
+
+scroll view 에 새로운 stack view 를 추가한 상황에서 레이아웃 갱신이 일어나지 않아 마지막 stack view 있는 곳으로 스크롤이 내려가지 않고 씹히는 현상이 발생해 이 메서드를 활용해 해결 했다.
+
+#### ✏️ NumberFomatter
+[NumberFomatter를 공부하고 작성한 글](https://velog.io/@cherrish_red/iOS-Number-Fomatter)
+
+숫자 값을 정해진 포멧에 맞춰 변환해 String 으로 return 해주는 객체이다. <br>
+decimal 타입을 사용해 자동으로 1,000 콤마를 찍어주고 1.00 -> 1 필요 없는 숫자는 날리도록 설정했다.
+
+#### ✏️ 부동 소수점 연산 오류
+[부동 소수점 연산 오류 를 공부하고 작성한 글](https://velog.io/@cherrish_red/swift-부동-소수점-오류가-나는-이유)
+
+부동 소수점 타입이 정확한 값이 아니라 근사치를 저장하기 때문에 생기는 오류이다. <br>
+부동 소수점 타입으로는 되도록이면 연산을 하는 것을 권장하지 않는다. 
+
+이 프로젝트에서는 부동 소수점 타입을 사용하도록 명시 되어 있었기 때문에 오류가 생기는 부분 전에 반 올림을 하도록 해서 문제를 해결 하였다.
 
 
